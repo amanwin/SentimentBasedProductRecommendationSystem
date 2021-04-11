@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <title>Product Recommendation System</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-steel fixed-top">
+        <div class="container">
+            <a class="navbar-brand mr-4" href="/">Product Recommendation System</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+    </nav>
+    <div class="container" style="padding-top: 80px;">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Product Recommendation By Username</h5>
+                <form action="/searchbyusername" method="POST">
+                    <label for="username">
+                        <h6>Choose a username:</h6>
+                    </label>
+                    <select id="username" name="username">
+                        {% for user in users %}
+                        <option value={{user}}>{{user}}</option>
+                        {% endfor %}
+                    </select>
+                    <br />
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+    </div>
+    <div class="container" style="padding-top: 5px;">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+
+</html>

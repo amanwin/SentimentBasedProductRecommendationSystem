@@ -1,0 +1,26 @@
+{% extends "index.html" %}
+
+{% block content %}
+
+<table class="table table-bordered">
+  <thead class="bg-steel">
+    <tr>
+      <th scope="col" style="color: white;">Top 5 Recommended Products for {{username}}</th>
+    </tr>
+  </thead>
+
+
+  {% for product in pro %}
+  <tbody>
+    <tr>
+      <td>{{product}}</td>
+    </tr>
+  </tbody>
+  {% endfor %}
+</table>
+<div class="container">
+  <div class="col-md-12 text-center">
+    <a class="btn btn-primary" target="/" href="/">Home</a>
+  </div>
+</div>
+{% endblock content %}
